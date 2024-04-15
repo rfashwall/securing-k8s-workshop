@@ -1,0 +1,47 @@
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: k8sallowedrepository
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sAllowedRepository
+      validation:
+        openAPIV3Schema:
+          properties:
+            registries:
+              type: array
+              items:
+                type: string
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8sallowedrepository
+
+        violation[{"msg": msg}] {
+          container := input.review.object.spec.containers[_]
+          satisfied := [good | repository = input.parameters.registries[_] ; good = contains(container.image, repository)]
+          not any(satisfied)
+          msg := sprintf("container <%v> has an invalid image repository <%v>, allowed registries are %v", [container.name, container.image, input.parameters.registries])
+        }
+
+        violation[{"msg": msg}] {
+          container := input.review.object.spec.initContainers[_]
+          satisfied := [good | repository = input.parameters.registries[_] ; good = contains(container.image, repository)]
+          not any(satisfied)
+          msg := sprintf("container <%v> has an invalid image repository <%v>, allowed registries are %v", [container.name, container.image, input.parameters.registries])
+        }
+---
+# apiVersion: constraints.gatekeeper.sh/v1beta1
+# kind: K8sAllowedRepository
+# metadata:
+#   name: allow-only-private-repository
+# spec:
+#   match:
+#     kinds:
+#       - apiGroups: [""]
+#         kinds: ["Pod"]
+#   parameters:
+#     registries:
+#       - "k8s-security.docker.com"
