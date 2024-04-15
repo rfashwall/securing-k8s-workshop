@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: np-demo
+  labels:
+    demo: np 
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: development
+  labels:
+    demo: dev 
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-server
+  namespace: np-demo
+  labels:
+    app: server 
+spec:
+  containers:
+    - name: my-server-container
+      image: nginx 
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-client
+  namespace: np-demo
+  labels:
+    app: client
+spec:
+  containers:
+    - name: my-client-container
+      image: radial/busyboxplus:curl
+      command: ["sh", "-c","while true; do if curl -s -o /dev/null -m 3 http://my-service; then echo \"reached server successfully!\"; else echo \"server unreachable!\"; fi; sleep 5; done"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+  namespace: np-demo
+spec:
+  selector:
+    app: server  
+  ports:
+    - port: 80
+      targetPort: 80

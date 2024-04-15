@@ -1,0 +1,36 @@
+stages:
+  - validate
+  - lint
+
+.trivy_install: &trivy_install |
+    export TRIVY_VERSION="0.50.1"
+    wget http://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz -O - | tar -zxvf -
+
+.validate_docker_config: &validate_docker_config
+  stage: validate
+  image: docker:stable-git
+  before_script:
+    - *trivy_install
+  script:
+    - ./trivy config ${DOCKER_FILE} --exit-code 0 | tee trivy-report.txt
+  artifacts:
+    paths: 
+      - trivy-report.txt
+
+validate_invalid_dockerfile:
+  extends: .validate_docker_config
+  variables:
+    DOCKER_FILE: "03_Proactive_vulnerability_mitigation/02.Dockerfile"
+
+
+validate_valid_dockerfile:
+  extends: .validate_docker_config
+  variables:
+    DOCKER_FILE: "03_Proactive_vulnerability_mitigation/01.Dockerfile"
+
+lint_k8s_files:
+  image: docker:stable-git
+  stage: lint
+  script:
+    - wget https://github.com/stackrox/kube-linter/releases/download/v0.6.8/kube-linter-linux.tar.gz -O - | tar -zxvf -
+    - ./kube-linter lint 02_defense_strategies --with-color | tee kube-linter-report.txt

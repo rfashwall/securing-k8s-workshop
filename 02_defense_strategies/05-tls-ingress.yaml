@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-service-ingress
+  namespace: np-demo
+spec:
+  tls:
+  - hosts:
+    - my-service.svc
+    secretName: my-service-tls-secret
+  rules:
+  - host: my-service.svc
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: my-service
+            port:
+              number: 80
