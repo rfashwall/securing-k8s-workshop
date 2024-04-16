@@ -69,7 +69,7 @@ This will enforce only the included repo in the above rule
 kubectl apply -f 03-required-resources.yaml -n gatekeeper-system
 ```
 
-Create required label constraint
+Create enforce resource constraint
 ```
 cat <<EOF | kubectl apply -f -
 apiVersion: constraints.gatekeeper.sh/v1beta1
@@ -81,9 +81,17 @@ spec:
     kinds:
       - apiGroups: [""]
         kinds: ["Pod"]
+EOF
 ```
 
 This will enforce the created pods to include resources(limits and requests)
+
+- Clean
+```
+kubectl delete K8sRequiredLabels/ns-must-have-label -n gatekeeper-system
+kubectl delete k8sRequiredResources/should-include-resources -n gatekeeper-system
+kubectl delete K8sAllowedRepository/allow-only-private-repository -n gatekeeper-system
+```
 
 ## Trivy 
 
@@ -114,6 +122,10 @@ helm upgrade --install trivy-operator aqua/trivy-operator \
 ```
 
 The operator will scan all the cluster and do benchmarking for the nodes
+
+- Port forward grafan
+
+- Import this dashboard by ID: 16337
 
 ## Falco
 ```
