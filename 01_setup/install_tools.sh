@@ -1,6 +1,6 @@
 #!/bin/bash
 
-tools=(kubectl kind helm docker git)
+tools=(kubectl kind helm docker git go)
 
 for tool in "${tools[@]}"; do
   if command -v "$tool" &>/dev/null; then
