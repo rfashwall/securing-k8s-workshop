@@ -1,27 +1,65 @@
 {
-    "title": "Defense Strategies",
-    "description": "Network Policies, RBAC",
-    "details": {
-      "intro": {
-        "text": "README.md"
+  "title": "Defense Strategies",
+  "description": "Network Policies, RBAC",
+  "details": {
+    "intro": {
+      "text": "README.md"
+    },
+    "steps": [
+      {
+        "title": "Network Policies",
+        "text": "step1.md"
       },
-      "steps": [
+      {
+        "title": "TLS",
+        "text": "step2.md"
+      },
+      {
+        "title": "RBAC",
+        "text": "step3.md"
+      }
+    ],
+    "assets": {
+      "host01": [
         {
-          "title": "Network Policies",
-          "text": "step1.md"
+          "file": "01-setup.yaml",
+          "target": "~/",
+          "chmod": "+w"
         },
         {
-            "title": "TLS",
-            "text": "step2.md"
-          },
-          {
-            "title": "RBAC",
-            "text": "step3.md"
-          }
+          "file": "02-default-network-policy.yaml",
+          "target": "~/",
+          "chmod": "+w"
+        },
+        {
+          "file": "03-allow-network-policy.yaml",
+          "target": "~/",
+          "chmod": "+w"
+        },
+        {
+          "file": "04-calico-np.yaml",
+          "target": "~/",
+          "chmod": "+w"
+        },
+        {
+          "file": "05-tls-ingress.yaml",
+          "target": "~/",
+          "chmod": "+w"
+        },
+        {
+          "file": "06-rbac-exploit-access.yaml",
+          "target": "~/",
+          "chmod": "+w"
+        },
+        {
+          "file": "07-rbac-limited-access.yaml",
+          "target": "~/",
+          "chmod": "+w"
+        }
       ]
-    },
-    "backend": {
-      "imageid": "kubernetes-kubeadm-2nodes"
     }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
   }
-  
+}
