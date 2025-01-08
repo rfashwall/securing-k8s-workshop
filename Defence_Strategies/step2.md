@@ -1,6 +1,7 @@
 ## TLS Termination
 
-1.  **Generate a Self-Signed Certificate**
+### Generate a Self-Signed Certificate
+
 ```plain
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key \
 -out tls.crt -subj "/CN=my-service.np-demo.svc"
@@ -16,13 +17,14 @@ kubectl create secret tls my-service-tls-secret \
 --namespace=np-demo
 ```{{exec}}
 
-2.  **Create an Ingress Resource**
+### Create an Ingress Resource
 
 	```plain
-   kubectl apply -f 05-tls-ingress.yaml -n np-demo
+      kubectl apply -f 05-tls-ingress.yaml -n np-demo
    ```{{exec}}
 
-**Explanation**
+### Explanation
+
 - We generate a simple self-signed certificate
 - The secret stores the certificate and private key
 - The Ingress:
