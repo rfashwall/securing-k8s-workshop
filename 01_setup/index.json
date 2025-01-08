@@ -10,7 +10,7 @@
         "title": "Create a pod",
         "text": "text.md"
       }
-    ],
+    ]
   },
   "backend": {
     "imageid": "kubernetes-kubeadm-2nodes"
