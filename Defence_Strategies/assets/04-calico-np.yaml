@@ -1,0 +1,16 @@
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: allow-my-server-np
+  namespace: np-demo
+spec:
+  selector: app == 'server' 
+  ingress:
+  - action: Allow
+    protocol: TCP
+    source: 
+      namespaceSelector: demo == 'np'
+      selector: app == 'client'
+    destination:
+      ports:
+      - 80

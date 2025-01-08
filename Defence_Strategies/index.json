@@ -1,0 +1,27 @@
+{
+    "title": "Kubernetes 2node multi-step verification",
+    "description": "Uses a two node Kubernetes cluster and performs user input verification in all steps",
+    "details": {
+      "intro": {
+        "text": "README.md"
+      },
+      "steps": [
+        {
+          "title": "Network Policies",
+          "text": "step1.md"
+        },
+        {
+            "title": "TLS",
+            "text": "step2.md"
+          },
+          {
+            "title": "RBAC",
+            "text": "step3.md"
+          }
+      ]
+    },
+    "backend": {
+      "imageid": "kubernetes-kubeadm-2nodes"
+    }
+  }
+  

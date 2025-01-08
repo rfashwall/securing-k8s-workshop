@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-my-server-np
+  namespace: np-demo
+spec:
+  podSelector:
+    matchLabels:
+      app: server
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          demo: np 
+      podSelector:
+        matchLabels:
+          app: client
+    ports:
+    - protocol: TCP
+      port: 80
