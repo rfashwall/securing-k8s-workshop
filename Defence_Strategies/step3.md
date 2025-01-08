@@ -1,7 +1,4 @@
-
-## RBAC
-
-### Overly Permissive Roles
+#### Overly Permissive Roles
 
 1. **Creating Required Resources for RBAC :**
    To set up the necessary resources for the demo, execute the following command. It will create a Service Account and bind it to a broad role.
