@@ -1,6 +1,6 @@
 #### Falco
 
-```
+```bash
 helm repo add falcosecurity https://falcosecurity.github.io/charts
 helm upgrade --install falco -n falco  \
 --set falcosidekick.enabled=true \

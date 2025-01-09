@@ -1,7 +1,7 @@
 #### Prometheus and Grafana
 
 - Install prometheus and grafana
-```
+```bash
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm upgrade --install prometheus prometheus-community/kube-prometheus-stack \
   --namespace monitoring \
@@ -16,7 +16,7 @@ helm upgrade --install prometheus prometheus-community/kube-prometheus-stack \
 #### Trivy
 
 - Install Trivy Operator
-```
+```bash
 helm repo add aqua https://aquasecurity.github.io/helm-charts/
 helm upgrade --install trivy-operator aqua/trivy-operator \
 --namespace trivy-system \

@@ -4,7 +4,7 @@ Gatekeeper is an open-source project developed by the Kubernetes community. It i
 
 ##### Install Chart
 
-```plain
+```bash
 helm repo add gatekeeper https://open-policy-agent.github.io/gatekeeper/charts
 helm repo update
 helm install gatekeeper/gatekeeper --name-template=gatekeeper --namespace gatekeeper-system --create-namespace
@@ -12,12 +12,12 @@ helm install gatekeeper/gatekeeper --name-template=gatekeeper --namespace gateke
 
 ##### Our first Constarint template
 
-```plain
+```bash
 kubectl apply -f 01-required-labels-template.yaml -n gatekeeper-system
 ```{{exec}}
 
 Create required label constraint
-```plain
+```yaml
 cat <<EOF | kubectl apply -f -
 apiVersion: constraints.gatekeeper.sh/v1beta1
 kind: K8sRequiredLabels
@@ -37,13 +37,13 @@ Now if we create a namespace without the label, the webhook will fire an error a
 
 ##### Example 2: Allow only specific Repos
 
-```
+```bash
 kubectl apply -f 02-enforce-registries.yaml -n gatekeeper-system
 ```{{exec}}
 
 Create required label constraint
 
-```plain
+```yaml
 cat <<EOF | kubectl apply -f -
 apiVersion: constraints.gatekeeper.sh/v1beta1
 kind: K8sAllowedRepository
@@ -64,13 +64,14 @@ EOF
 This will enforce only the included repo in the above rule
 
 ##### Example 3: Enforce resources
-```
+
+```bash
 kubectl apply -f 03-required-resources.yaml -n gatekeeper-system
-```
+```{{exec}}
 
 Create enforce resource constraint
 
-```
+```yaml
 cat <<EOF | kubectl apply -f -
 apiVersion: constraints.gatekeeper.sh/v1beta1
 kind: k8sRequiredResources
@@ -87,7 +88,7 @@ EOF
 This will enforce the created pods to include resources(limits and requests)
 
 - Clean
-```plain
+```bash
 kubectl delete K8sRequiredLabels/ns-must-have-label -n gatekeeper-system
 kubectl delete k8sRequiredResources/should-include-resources -n gatekeeper-system
 kubectl delete K8sAllowedRepository/allow-only-private-repository -n gatekeeper-system
