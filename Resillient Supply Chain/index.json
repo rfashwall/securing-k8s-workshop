@@ -1,0 +1,45 @@
+{
+  "title": "Resillient Supply Chain",
+  "description": "Network Policies, RBAC",
+  "details": {
+    "intro": {
+      "text": "README.md"
+    },
+    "steps": [
+      {
+        "title": "Gatekeeper",
+        "text": "step1.md"
+      },
+      {
+        "title": "Trivy",
+        "text": "step2.md"
+      },
+      {
+        "title": "Falco",
+        "text": "step3.md"
+      }
+    ],
+    "assets": {
+      "host01": [
+        {
+          "file": "01-required-labels-template.yaml",
+          "target": "~/",
+          "chmod": "+w"
+        },
+        {
+          "file": "02-enforce-registries",
+          "target": "~/",
+          "chmod": "+w"
+        },
+        {
+          "file": "03-required-resources.yaml",
+          "target": "~/",
+          "chmod": "+w"
+        }
+      ]
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
