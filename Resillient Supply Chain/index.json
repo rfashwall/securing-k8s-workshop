@@ -27,7 +27,7 @@
           "chmod": "+w"
         },
         {
-          "file": "02-enforce-registries",
+          "file": "02-enforce-registries.yaml",
           "target": "~/",
           "chmod": "+w"
         },
