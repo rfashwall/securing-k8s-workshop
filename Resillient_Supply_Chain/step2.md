@@ -1,6 +1,6 @@
 #### Prometheus and Grafana
 
-- Install prometheus and grafana
+##### Install prometheus and grafana
 ```bash
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm upgrade --install prometheus prometheus-community/kube-prometheus-stack \
@@ -12,6 +12,19 @@ helm upgrade --install prometheus prometheus-community/kube-prometheus-stack \
   --set prometheus.prometheusSpec.probeSelectorNilUsesHelmValues=false
 ```{{exec}}
 
+##### Expose Port
+
+```bash
+k port-forward services/prometheus-grafana -n monitoring 8090:80 --address 0.0.0.0
+```
+k port-forward services/prometheus-kube-prometheus-alertmanager -n monitoring 8092:8080 --address 0.0.0.0
+
+##### Get User & Password
+
+```
+kubectl get secret prometheus-grafana -n monitoring -o go-template='{{range $k,$v := .data}}{{printf "%s: " $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{"\n"}}{{end}}'
+```{{exec}}
+
 
 #### Trivy
 
@@ -20,14 +33,11 @@ helm upgrade --install prometheus prometheus-community/kube-prometheus-stack \
 helm repo add aqua https://aquasecurity.github.io/helm-charts/
 helm upgrade --install trivy-operator aqua/trivy-operator \
 --namespace trivy-system \
---version 0.21.2 \
+--version 0.23.0 \
 --create-namespace \
 --set serviceMonitor.enabled=true \
---set trivy.ignoreUnfixed=true
+--set trivy.ignoreUnfixed=false \
+--set operator.configAuditScannerEnabled=false
 ```{{exec}}
-
-The operator will scan all the cluster and do benchmarking for the nodes
-
-- Port forward grafan
 
 - Import this dashboard by ID: 16337
