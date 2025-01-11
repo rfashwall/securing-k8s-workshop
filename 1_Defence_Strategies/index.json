@@ -73,12 +73,12 @@
           "chmod": "+w"
         },
         {
-          "file": "insecure_pod.yaml",
+          "file": "insecure-pod.yaml",
           "target": "~/",
           "chmod": "+w"
         },
         {
-          "file": "secure_pod.yaml",
+          "file": "secure-pod.yaml",
           "target": "~/",
           "chmod": "+w"
         }
