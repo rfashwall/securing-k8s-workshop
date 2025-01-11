@@ -1,3 +1,5 @@
+TLS termination refers to the process of decrypting incoming HTTPS traffic at a designated point before forwarding it to your backend application pods. This approach enhances security by ensuring that only the component responsible for termination (usually an Ingress controller) handles the sensitive encryption keys.
+
 #### Generate a Self-Signed Certificate
 
 ```

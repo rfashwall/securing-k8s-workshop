@@ -11,16 +11,24 @@
         "text": "Network_policy/intro.md"
       },
       {
-        "title": "Network Policies",
+        "title": "Network Policy Demo",
         "text": "Network_policy/step1.md"
       },
       {
-        "title": "TLS",
-        "text": "step2.md"
+        "title": "Consederations",
+        "text": "Network_policy/step2.md"
       },
       {
-        "title": "RBAC",
-        "text": "step3.md"
+        "title": "TLS",
+        "text": "TLS/step1.md"
+      },
+      {
+        "title": "RBAC: Secure Access Control",
+        "text": "RBAC/intro.md"
+      },
+      {
+        "title": "RBAC Demo",
+        "text": "RBAC/intro.md"
       }
     ],
     "assets": {

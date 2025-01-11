@@ -1,5 +1,7 @@
 #### Overly Permissive Roles
 
+![NP](../assets/rbac1.png)
+
 1. **Creating Required Resources for RBAC :**
    To set up the necessary resources for the demo, execute the following command. It will create a Service Account and bind it to a broad role.
     ```
@@ -42,6 +44,8 @@
    Upon successful execution, you will receive the JSON response indicating the creation of the pod.
 
 ### Least Privilege RBAC
+
+![NP](../assets/rbac2.png)
 
 1. **Creating Required Resources for RBAC :**
    To set up the necessary resources for the demo, execute the following command. It will create a Service Account and bind it to a broad role.
