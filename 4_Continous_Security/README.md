@@ -3,10 +3,8 @@ Continous Security (CS) is an emerging concept that integrates security practice
 
 ## Kube-linter
 KubeLinter analyzes Kubernetes YAML files and Helm charts, and checks them against a variety of best practices, with a focus on production readiness and security.
-> CI Demo
-## Trivy CI Integration
 
-> CI Demo
+https://gitlab.com/rfashwal/securing-k8s-workshop
 
 ## References
 - [kube-linter](https://github.com/stackrox/kube-linter)

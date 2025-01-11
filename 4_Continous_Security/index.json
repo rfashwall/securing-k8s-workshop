@@ -1,0 +1,12 @@
+{
+  "title": "Continous Security",
+  "description": "CI Integration",
+  "details": {
+    "intro": {
+      "text": "README.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1nodes"
+  }
+}
