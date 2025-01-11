@@ -15,6 +15,9 @@
     kubectl get secret pod-developer-token -n development -o jsonpath="{.data['ca\.crt']}" | base64 -d > ca.crt
     ```{{exec}}
 
+    View the token
+    `for line in `echo $TOKEN | tr "." "\n"`; do echo $line | base64 --decode | jq  && echo;done`{{exec}}
+
 3. **Getting API Server Address:**
    Retrieve the API server address by executing the command below. The output will provide the necessary server address.
     ```
@@ -26,7 +29,7 @@
     Kubernetes control plane is running at https://127.0.0.1:54237
     CoreDNS is running at https://127.0.0.1:54237/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
     To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
-    ```{{exec}}
+    ```
 
    Trim the address using the command:
     ```
