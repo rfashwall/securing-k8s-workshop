@@ -16,6 +16,14 @@
       },
       {
         "title": "Falco",
+        "text": "Falco/step1.md"
+      },
+      {
+        "title": "Falco In Action",
+        "text": "step2.md"
+      },
+      {
+        "title": "Custom Falco Rules",
         "text": "step3.md"
       }
     ],
