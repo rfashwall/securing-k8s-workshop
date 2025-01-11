@@ -8,7 +8,7 @@ Segmentation is your key tool to enforce a zero-trust approach within your clust
 ### Network Policy
 The native Kubernetes way. Network policies let you define fine-grained rules to limit access among workloads
 
-![NP](./assets/np.png)
+![NP](../assets/np.png)
 
 ### Container Network Interface (CNI)
 Many third-party networking solutions offer advanced features:
