@@ -7,8 +7,12 @@
     },
     "steps": [
       {
+        "title": "Network Segmentation",
+        "text": "Network_policy/intro.md"
+      },
+      {
         "title": "Network Policies",
-        "text": "step1.md"
+        "text": "Network_policy/step1.md"
       },
       {
         "title": "TLS",
