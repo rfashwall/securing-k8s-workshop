@@ -1,5 +1,3 @@
-#### Gatekeeper
-
 Gatekeeper is an open-source project developed by the Kubernetes community. It is a policy enforcement tool that helps ensure that Kubernetes workloads adhere to a set of predefined policies or constraints. These policies could cover security, compliance, resource allocation, and other operational requirements.
 
 ##### Install Chart

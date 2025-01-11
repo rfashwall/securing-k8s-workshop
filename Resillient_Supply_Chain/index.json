@@ -1,6 +1,6 @@
 {
   "title": "Resillient Supply Chain",
-  "description": "Network Policies, RBAC",
+  "description": "Gatekeeper, Trivy, and Falco",
   "details": {
     "intro": {
       "text": "README.md"
@@ -40,6 +40,6 @@
     }
   },
   "backend": {
-    "imageid": "kubernetes-kubeadm-2nodes"
+    "imageid": "kubernetes-kubeadm-1nodes"
   }
 }

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: insecure-pod
+  namespace: development
+spec:
+  containers:
+  - name: demo-container
+    image: busybox
+    command: ["sleep", "3600"]
+    
