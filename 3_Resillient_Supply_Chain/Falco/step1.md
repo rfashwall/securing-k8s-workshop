@@ -1,4 +1,5 @@
 #### Install Falco
+
 ```bash
 curl -fsSL https://falco.org/repo/falcosecurity-packages.asc | \
 sudo gpg --dearmor -o /usr/share/keyrings/falco-archive-keyring.gpg

@@ -20,11 +20,11 @@
       },
       {
         "title": "Falco In Action",
-        "text": "step2.md"
+        "text": "Falco/step2.md"
       },
       {
         "title": "Custom Falco Rules",
-        "text": "step3.md"
+        "text": "Falco/step3.md"
       }
     ],
     "assets": {
