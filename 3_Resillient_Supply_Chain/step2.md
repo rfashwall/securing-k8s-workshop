@@ -16,8 +16,7 @@ helm upgrade --install prometheus prometheus-community/kube-prometheus-stack \
 
 ```bash
 k port-forward services/prometheus-grafana -n monitoring 8090:80 --address 0.0.0.0
-```
-k port-forward services/prometheus-kube-prometheus-alertmanager -n monitoring 8092:8080 --address 0.0.0.0
+```{{exec}}
 
 ##### Get User & Password
 
@@ -33,11 +32,10 @@ kubectl get secret prometheus-grafana -n monitoring -o go-template='{{range $k,$
 helm repo add aqua https://aquasecurity.github.io/helm-charts/
 helm upgrade --install trivy-operator aqua/trivy-operator \
 --namespace trivy-system \
---version 0.23.0 \
+--version 0.25.0 \
 --create-namespace \
 --set serviceMonitor.enabled=true \
---set trivy.ignoreUnfixed=false \
---set operator.configAuditScannerEnabled=false
+--set trivy.ignoreUnfixed=false 
 ```{{exec}}
 
 - Import this dashboard by ID: 16337
