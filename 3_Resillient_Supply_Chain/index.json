@@ -8,11 +8,19 @@
     "steps": [
       {
         "title": "Gatekeeper",
-        "text": "step1.md"
+        "text": "Gatekeeper/step1.md"
       },
       {
-        "title": "Trivy",
-        "text": "step2.md"
+        "title": "Our First Constarint",
+        "text": "Gatekeeper/step2.md"
+      },
+      {
+        "title": "Allow Repos Constarint",
+        "text": "Gatekeeper/step3.md"
+      },
+      {
+        "title": "Enforce Resources Constraint",
+        "text": "Gatekeeper/step4.md"
       },
       {
         "title": "Falco",
@@ -25,6 +33,14 @@
       {
         "title": "Custom Falco Rules",
         "text": "Falco/step3.md"
+      },
+      {
+        "title": "Monitoring with Grafana",
+        "text": "Monitoring/step1.md"
+      },
+      {
+        "title": "Trivy",
+        "text": "Trivy/step1.md"
       }
     ],
     "assets": {

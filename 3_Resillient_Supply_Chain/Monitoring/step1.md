@@ -23,19 +23,3 @@ k port-forward services/prometheus-grafana -n monitoring 8090:80 --address 0.0.0
 ```
 kubectl get secret prometheus-grafana -n monitoring -o go-template='{{range $k,$v := .data}}{{printf "%s: " $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{"\n"}}{{end}}'
 ```{{exec}}
-
-
-#### Trivy
-
-- Install Trivy Operator
-```bash
-helm repo add aqua https://aquasecurity.github.io/helm-charts/
-helm upgrade --install trivy-operator aqua/trivy-operator \
---namespace trivy-system \
---version 0.25.0 \
---create-namespace \
---set serviceMonitor.enabled=true \
---set trivy.ignoreUnfixed=false 
-```{{exec}}
-
-- Import this dashboard by ID: 16337
