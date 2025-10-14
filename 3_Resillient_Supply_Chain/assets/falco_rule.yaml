@@ -9,7 +9,8 @@ customRules:
         (proc.name = bash or
         proc.name = ksh)
       output: >
-        NDC USERS shell in a container |
+        ndc user shell in a container |
         user=%user.name container_id=%container.id container_name=%container.name
         shell=%proc.name parent=%proc.pname cmdline=%proc.cmdline
-      priority: CRITICAL
+      priority: WARNING
+      tags: [ndc]

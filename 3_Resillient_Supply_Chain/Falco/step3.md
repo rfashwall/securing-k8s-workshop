@@ -12,7 +12,7 @@ helm upgrade --namespace falco falco falcosecurity/falco -f falco_rule.yaml --se
 
 3. Access the pod shell
 ```bash
-kubectl exect -it nginx -- sh
+kubectl exec -it nginx -- sh
 ```{{exec}}
 
 4. Access Falco Console in a new terminal
