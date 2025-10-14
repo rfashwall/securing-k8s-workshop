@@ -59,6 +59,16 @@
           "file": "03-required-resources.yaml",
           "target": "~/",
           "chmod": "+w"
+        },
+        {
+          "file": "falco_rule.yaml",
+          "target": "~/",
+          "chmod": "+w"
+        },
+        {
+          "file": "04-pod-with-resources.yaml",
+          "target": "~/",
+          "chmod": "+w"
         }
       ]
     }

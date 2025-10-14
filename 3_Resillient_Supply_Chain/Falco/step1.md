@@ -17,16 +17,24 @@ Overall, Falco is a powerful tool for enhancing the security of cloud-native env
 
 #### Installation
 
+1. First, install the helm repository:
+
 ```bash
-curl -fsSL https://falco.org/repo/falcosecurity-packages.asc | \
-sudo gpg --dearmor -o /usr/share/keyrings/falco-archive-keyring.gpg
+helm repo add falcosecurity https://falcosecurity.github.io/charts
+helm repo update
+```{{exec}}
 
-echo "deb [signed-by=/usr/share/keyrings/falco-archive-keyring.gpg] https://download.falco.org/packages/deb stable main" | \
-sudo tee -a /etc/apt/sources.list.d/falcosecurity.list
+2. Then install Falco:
 
+```bash
+helm install --replace falco --namespace falco --create-namespace --set tty=true falcosecurity/falco
+```{{exec}}
 
-sudo apt-get update -y
+Check that the Falco pods are running:
 
-sudo apt-get install -y falco
+kubectl get pods -n falco
+check that the Falco pods are running, Falco pod(s) might need a few seconds to start. Wait until they are ready:
 
+```bash
+kubectl wait pods --for=condition=Ready --all -n falco
 ```{{exec}}
