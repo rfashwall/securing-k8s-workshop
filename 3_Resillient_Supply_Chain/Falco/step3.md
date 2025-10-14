@@ -1,12 +1,12 @@
 1. Check the custom rule
 
 ```bash
-cat falco_rule.yaml
+cat falco.yaml
 ```{{exec}}
 
 2. Upgrade falco with new custom rule and enable UI
 ```bash
-helm upgrade --namespace falco falco falcosecurity/falco -f falco_rule.yaml --set falcosidekick.enabled=true --set falcosidekick.webui.enabled=true
+helm upgrade --namespace falco falco falcosecurity/falco -f falco.yaml --set falcosidekick.enabled=true --set falcosidekick.webui.enabled=true
 
 ```{{exec}}
 

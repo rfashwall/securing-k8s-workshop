@@ -1,3 +1,5 @@
+falco:
+  rule_matching: all
 customRules:
   custom-rules.yaml: |-
     - rule: ndc_shell_in_container

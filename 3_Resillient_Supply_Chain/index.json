@@ -61,7 +61,7 @@
           "chmod": "+w"
         },
         {
-          "file": "falco_rule.yaml",
+          "file": "falco.yaml",
           "target": "~/",
           "chmod": "+w"
         },
