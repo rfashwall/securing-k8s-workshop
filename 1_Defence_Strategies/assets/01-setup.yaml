@@ -8,6 +8,11 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
+  name: security-context-demo
+---
+apiVersion: v1
+kind: Namespace
+metadata:
   name: development
   labels:
     demo: dev 

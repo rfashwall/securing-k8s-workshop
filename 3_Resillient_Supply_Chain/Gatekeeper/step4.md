@@ -38,7 +38,8 @@ kubectl apply -f 04-pod-with-resources.yaml
 
 5. Clean
 ```bash
-kubectl delete K8sRequiredLabels/ns-must-have-label -n gatekeeper-system
 kubectl delete k8sRequiredResources/should-include-resources -n gatekeeper-system
-kubectl delete K8sAllowedRepository/allow-only-private-repository -n gatekeeper-system
+kubectl delete po nginx
+
+helm uninstall gatekeeper -n gatekeeper-system
 ```{{exec}}

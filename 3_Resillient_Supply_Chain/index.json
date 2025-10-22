@@ -35,12 +35,12 @@
         "text": "Falco/step3.md"
       },
       {
-        "title": "Monitoring with Grafana",
-        "text": "Monitoring/step1.md"
-      },
-      {
         "title": "Trivy",
         "text": "Trivy/step1.md"
+      },
+      {
+        "title": "Monitoring with Grafana",
+        "text": "Monitoring/step1.md"
       }
     ],
     "assets": {

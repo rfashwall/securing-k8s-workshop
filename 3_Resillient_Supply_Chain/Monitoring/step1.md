@@ -23,3 +23,5 @@ k port-forward services/prometheus-grafana -n monitoring 8090:80 --address 0.0.0
 ```
 kubectl get secret prometheus-grafana -n monitoring -o go-template='{{range $k,$v := .data}}{{printf "%s: " $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{"\n"}}{{end}}'
 ```{{exec}}
+
+- Import this dashboard to Grafana by ID: 16337

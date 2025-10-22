@@ -16,7 +16,10 @@
     ```{{exec}}
 
     View the token
-    `for line in `echo $TOKEN | tr "." "\n"`; do echo $line | base64 --decode | jq  && echo;done`{{exec}}
+    
+    ```bash
+    for line in `echo $TOKEN | tr "." "\n"`; do echo $line | base64 --decode | jq  && echo;done
+   ```{{exec}}
 
 3. **Getting API Server Address:**
    Retrieve the API server address by executing the command below. The output will provide the necessary server address.
